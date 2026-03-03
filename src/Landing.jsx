@@ -58,7 +58,7 @@ export default function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div style={{ minHeight: '100vh', background: T.white, fontFamily: sans, color: T.fg }}>
+    <div className="page-wrapper" style={{ minHeight: '100vh', background: T.white, fontFamily: sans, color: T.fg }}>
 
       {/* NAV */}
       <nav style={{ position: 'sticky', top: 0, zIndex: 50, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(20px)', borderBottom: `1px solid ${T.border}`, height: 64 }}>
@@ -374,6 +374,8 @@ export default function Landing() {
         .nav-hamburger { display: none !important; }
 
         @media (max-width: 768px) {
+          nav { position: fixed !important; left: 0; right: 0; background: rgba(255,255,255,1) !important; }
+          .page-wrapper { padding-top: 64px; }
           .nav-links { display: none !important; }
           .nav-cta { display: none !important; }
           .nav-hamburger { display: block !important; }
