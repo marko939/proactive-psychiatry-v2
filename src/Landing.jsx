@@ -397,6 +397,9 @@ export default function Landing() {
 
           .steps-grid {
             grid-template-columns: 1fr !important;
+            max-width: 400px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
           }
 
           .meds-grid {
