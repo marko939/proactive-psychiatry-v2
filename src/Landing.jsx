@@ -30,13 +30,17 @@ const sans = "system-ui, -apple-system, 'Segoe UI', sans-serif";
 
 const STEPS = [
   { n: 'Step 1', title: 'Comprehensive intake', desc: 'A 75-minute evaluation covering your full medication history, prior taper attempts, and current symptom profile. Enough time to build a protocol that reflects your actual situation.', tags: ['75-min intake', 'Full history', 'Telehealth'] },
-  { n: 'Step 2', title: 'Personalised taper protocol', desc: 'A hyperbolic reduction schedule built around your medication, dose, and response history. Monitored between appointments — with adjustments made as your clinical picture changes, not at the next available slot.', tags: ['Ongoing monitoring', 'Dose adjustments', 'Between-visit access'] },
-  { n: 'Step 3', title: 'Supervised through to discontinuation', desc: 'Active clinical oversight through the final reductions, where most tapers fail. Ryan remains your prescriber until you reach zero — not until the plan is written.', tags: ['Full taper', 'Through to zero', 'Continuous care'] },
+  { n: 'Step 2', title: 'Personalised taper protocol', desc: 'A hyperbolic reduction schedule built around your medication, dose, and response history. Monitored between appointments — with adjustments made as your clinical picture changes, not at the next available slot.', tags: ['Ongoing monitoring', 'Dose adjustments', 'Between-visit'] },
+  { n: 'Step 3', title: 'Supported to discontinuation', desc: 'Active clinical oversight through the final reductions, where most tapers fail. Ryan remains your prescriber until you reach zero — not until the plan is written.', tags: ['Full taper', 'Through to zero', 'Continuous care'] },
 ];
 
 const MEDS = [
-  { label: 'Antidepressants', meds: 'SSRIs · SNRIs · TCAs · MAOIs', icon: 'pill' },
-  { label: 'Benzodiazepines', meds: 'Clonazepam · Diazepam · Lorazepam', icon: 'drop' },
+  { label: 'Antidepressants', icon: 'pill' },
+  { label: 'Benzodiazepines', icon: 'drop' },
+  { label: 'Antipsychotics', icon: 'hex' },
+  { label: 'Sleep Medications', icon: 'moon' },
+  { label: 'Mood Stabilisers', icon: 'scale' },
+  { label: 'Stimulants', icon: 'bolt' },
 ];
 
 const FAQS = [
@@ -61,7 +65,7 @@ export default function Landing() {
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><img src="/brain-logo.avif" alt="" style={{ width: 28, height: 28, objectFit: 'contain' }} /><span style={{ fontSize: 17, fontWeight: 600, color: T.fg, fontFamily: sans, letterSpacing: '-0.02em' }}>Ryan Sheridan, DNP</span></div>
           <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-            {['How It Works', 'About', 'FAQ'].map(l => (
+            {['How It Works', 'About', 'Blog', 'FAQ'].map(l => (
               <a key={l} href={`#${l.toLowerCase().replace(/\s+/g, '-')}`} style={{ fontSize: 14, color: T.fg, textDecoration: 'none', fontWeight: 400 }}>{l}</a>
             ))}
           </div>
@@ -75,7 +79,7 @@ export default function Landing() {
         </div>
         {menuOpen && (
           <div className="mobile-menu" style={{ background: T.white, borderBottom: `1px solid ${T.border}`, padding: '16px 20px', display: 'flex', flexDirection: 'column', gap: 16 }}>
-            {['How It Works', 'About', 'FAQ'].map(l => (
+            {['How It Works', 'About', 'Blog', 'FAQ'].map(l => (
               <a key={l} href={`#${l.toLowerCase().replace(/\s+/g, '-')}`} onClick={() => setMenuOpen(false)} style={{ fontSize: 16, color: T.fg, textDecoration: 'none', fontWeight: 400 }}>{l}</a>
             ))}
             <div style={{ display: 'flex', gap: 12, marginTop: 8 }}>
@@ -96,7 +100,7 @@ export default function Landing() {
               Feel stuck on your medication?
             </h1>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.75)', lineHeight: 1.65, maxWidth: 480, marginBottom: 40 }}>
-              Don't white-knuckle this alone.<br />Find a clinician who stays with you from the first dose reduction to zero.<br /><br />Ongoing adjustments, check-ins, someone who understands your symptoms.
+              Don't white-knuckle this alone. Find a clinician who stays with you from the first dose reduction to zero.<br /><br />Ongoing adjustments, check-ins, someone who understands your symptoms.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
               <a href="#book" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: T.lime, color: T.fg, fontSize: 16, fontWeight: 500, padding: '16px 32px', borderRadius: 12, textDecoration: 'none', border: 'none' }}>Start tapering with support</a>
@@ -126,9 +130,9 @@ export default function Landing() {
                 <img src="/ryan-sheridan.avif" alt="Ryan Sheridan, DNP" style={{ width: '50%', display: 'block', margin: '0 auto' }} />
               </div>
             </div>
-            <div style={{ paddingTop: 48 }}>
+            <div style={{ paddingTop: 0 }}>
               <p style={{ fontSize: 16, color: T.muted, lineHeight: 1.65, maxWidth: 580 }}>
-                Most failed attempts to get off psych meds share a common thread: the patient was left to interpret their own symptoms without clinical guidance at the moments that mattered most. A dose reduction triggers physical discomfort, returning anxiety and disrupted sleep. With no one available to assess it, reinstatement feels like the only safe option.<br /><br />Ryan Sheridan, DNP, PMHNP-BC built his practice around closing that gap. He provides active clinical oversight throughout the entire taper — monitoring symptoms between appointments, adjusting protocols when your body requires it, and distinguishing withdrawal from relapse based on pattern and timing rather than assumption.<br /><br />You are not given a schedule and left to manage the outcome. He remains your clinician from the first reduction to zero.
+                Most failed attempts to get off psych meds share a common thread: the patient was left to interpret their own symptoms without clinical guidance at the moments that mattered most. A dose reduction triggers physical discomfort, returning anxiety and disrupted sleep. With no one available to assess it, reinstatement feels like the only safe option.<br /><br />Ryan Sheridan, DNP, PMHNP-BC built his practice around closing that gap. He provides active clinical oversight throughout the entire taper — monitoring symptoms between appointments, adjusting protocols when your body requires it, and distinguishing withdrawal from relapse.
               </p>
               <div style={{ marginTop: 32 }}>
                 <a href="#book" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: T.purple, color: T.white, fontSize: 15, fontWeight: 600, padding: '14px 28px', borderRadius: 12, textDecoration: 'none', border: 'none' }}>Stop doing this alone</a>
@@ -156,9 +160,9 @@ export default function Landing() {
                 <div style={{ fontSize: 14, color: T.purple, fontWeight: 500, marginBottom: 16 }}>{s.n}</div>
                 <div style={{ fontFamily: serif, fontSize: 24, fontWeight: 400, color: T.fg, marginBottom: 12, lineHeight: 1.15, letterSpacing: '-0.01em' }}>{s.title}</div>
                 <p style={{ fontSize: 14, color: T.muted, lineHeight: 1.65, marginBottom: 24, flex: 1 }}>{s.desc}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                <div style={{ display: 'flex', gap: 8 }}>
                   {s.tags.map(tag => (
-                    <span key={tag} style={{ fontSize: 12, color: T.fg, border: `1px solid ${T.border}`, borderRadius: 8, padding: '6px 12px', background: T.white, display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                    <span key={tag} style={{ fontSize: 11, color: T.fg, border: `1px solid ${T.border}`, borderRadius: 8, padding: '5px 10px', background: T.white, display: 'inline-flex', alignItems: 'center', gap: 5, whiteSpace: 'nowrap' }}>
                       {tag} <span style={{ color: T.teal }}>✓</span>
                     </span>
                   ))}
@@ -178,22 +182,23 @@ export default function Landing() {
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
           <div style={{ fontSize: 13, color: T.purple, marginBottom: 10, fontWeight: 500 }}>Which one has had you stuck?</div>
           <h2 style={{ fontFamily: serif, fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 400, color: T.fg, lineHeight: 1.1, marginBottom: 48, letterSpacing: '-0.02em' }}>Whatever you're on, we can get you off</h2>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, flexWrap: 'wrap', maxWidth: 900, margin: '0 auto' }}>
+          <div className="meds-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, maxWidth: 1000, margin: '0 auto' }}>
             {MEDS.map(m => (
-              <div key={m.label} style={{ display: 'flex', alignItems: 'center', gap: 10, background: T.bg, border: `1px solid ${T.border}`, borderRadius: 50, padding: '10px 20px' }}>
-                <div style={{ width: 28, height: 28, borderRadius: '50%', background: T.purplePale, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  {m.icon === 'pill' && <svg width="14" height="14" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>}
-                  {m.icon === 'drop' && <svg width="14" height="14" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>}
+              <div key={m.label} style={{ background: T.bg, borderRadius: T.r, padding: '28px 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: T.purplePale, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  {m.icon === 'pill' && <svg width="20" height="20" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>}
+                  {m.icon === 'drop' && <svg width="20" height="20" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>}
+                  {m.icon === 'hex' && <svg width="20" height="20" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" /></svg>}
+                  {m.icon === 'moon' && <svg width="20" height="20" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>}
+                  {m.icon === 'scale' && <svg width="20" height="20" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" /></svg>}
+                  {m.icon === 'bolt' && <svg width="20" height="20" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>}
                 </div>
-                <div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: T.fg, fontFamily: sans }}>{m.label}</div>
-                  <div style={{ fontSize: 12, color: T.subtle, fontFamily: sans }}>{m.meds}</div>
+                <div style={{ textAlign: 'left' }}>
+                  <div style={{ fontSize: 15, fontWeight: 600, color: T.fg, fontFamily: sans }}>{m.label}</div>
+
                 </div>
               </div>
             ))}
-            <div style={{ display: 'flex', alignItems: 'center', background: T.purplePale, border: `1px solid ${T.purplePale}`, borderRadius: 50, padding: '10px 20px' }}>
-              <span style={{ fontSize: 14, fontWeight: 500, color: T.purple, fontFamily: sans }}>+ antipsychotics, sleep meds, mood stabilisers, stimulants</span>
-            </div>
           </div>
         </div>
       </section>
@@ -228,7 +233,7 @@ export default function Landing() {
         <div className="book-grid" style={{ maxWidth: 1400, margin: '0 auto', padding: '0 20px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }}>
           <div>
             <h2 style={{ fontFamily: serif, fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 400, color: T.white, lineHeight: 1.1, marginBottom: 24, letterSpacing: '-0.02em' }}>Ready to stop doing this alone?</h2>
-            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.7)', lineHeight: 1.65, marginBottom: 40 }}>Reach out and tell Ryan what's been happening. Virtual across DC, Maryland, Missouri, and Colorado — or in-person at Dupont Circle. No intake forms to wrestle with first. Just a conversation about where you are and what you need.</p>
+            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.7)', lineHeight: 1.65, marginBottom: 40 }}>Virtual across DC, Maryland, Missouri, and Colorado — or in-person at Dupont Circle. No intake forms to wrestle with first. Just a conversation about where you are and what you need.</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 40 }}>
               {[['phone','Call','(202) 640-5502','tel:2026405502'],['mail','Email','hello@proactivepsychiatry.com','mailto:hello@proactivepsychiatry.com']].map(([ic,label,val,href]) => (
                 <a key={label} href={href} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: 20, background: 'rgba(255,255,255,0.06)', borderRadius: T.r, border: '1px solid rgba(255,255,255,0.1)', textDecoration: 'none' }}>
@@ -288,6 +293,34 @@ export default function Landing() {
               </div>
               <button style={{ width: '100%', padding: '14px 24px', background: T.lime, color: T.fg, fontSize: 16, fontWeight: 600, borderRadius: 12, border: 'none', cursor: 'pointer', fontFamily: sans }}>Reach out to Ryan</button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BLOG */}
+      <section id="blog" style={{ background: T.bg, padding: '96px 0', scrollMarginTop: 68 }}>
+        <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 20px' }}>
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <div style={{ fontSize: 13, color: T.purple, marginBottom: 10, fontWeight: 500 }}>From the practice</div>
+            <h2 style={{ fontFamily: serif, fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 400, color: T.fg, lineHeight: 1.1, letterSpacing: '-0.02em' }}>Latest articles</h2>
+          </div>
+          <div className="blog-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            {[
+              { title: 'Why most tapers fail in the last 10%', excerpt: 'The final reductions are where most protocols fall apart. Here\'s why linear dose cuts stop working — and what to do instead.', tag: 'Tapering' },
+              { title: 'Benzodiazepine withdrawal is not anxiety', excerpt: 'Withdrawal symptoms mimic the condition the drug was prescribed for. Learning to tell them apart changes everything.', tag: 'Benzodiazepines' },
+              { title: 'What hyperbolic tapering actually means', excerpt: 'A term you\'ll see everywhere in deprescribing. Here\'s the science behind it and why it produces better outcomes.', tag: 'Science' },
+            ].map((post, i) => (
+              <div key={i} style={{ background: T.white, borderRadius: T.r, overflow: 'hidden', border: `1px solid ${T.border}` }}>
+                <div style={{ height: 180, background: T.purplePale, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <svg width="48" height="48" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                </div>
+                <div style={{ padding: '24px 24px 28px' }}>
+                  <span style={{ fontSize: 12, fontWeight: 500, color: T.purple, background: T.purplePale, borderRadius: 6, padding: '4px 10px' }}>{post.tag}</span>
+                  <h3 style={{ fontFamily: serif, fontSize: 20, fontWeight: 400, color: T.fg, marginTop: 16, marginBottom: 10, lineHeight: 1.25 }}>{post.title}</h3>
+                  <p style={{ fontSize: 14, color: T.muted, lineHeight: 1.6 }}>{post.excerpt}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -370,6 +403,10 @@ export default function Landing() {
             grid-template-columns: 1fr !important;
           }
 
+          .blog-grid {
+            grid-template-columns: 1fr !important;
+          }
+
           .faq-grid {
             grid-template-columns: 1fr !important;
             gap: 32px !important;
@@ -397,6 +434,9 @@ export default function Landing() {
             grid-template-columns: 1fr 1fr !important;
           }
           .meds-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+          .blog-grid {
             grid-template-columns: 1fr 1fr !important;
           }
           .footer-grid {
