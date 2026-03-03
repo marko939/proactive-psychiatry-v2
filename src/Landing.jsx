@@ -37,10 +37,6 @@ const STEPS = [
 const MEDS = [
   { label: 'Antidepressants', meds: 'SSRIs · SNRIs · TCAs · MAOIs', icon: 'pill' },
   { label: 'Benzodiazepines', meds: 'Clonazepam · Diazepam · Lorazepam', icon: 'drop' },
-  { label: 'Antipsychotics', meds: 'Quetiapine · Olanzapine · Risperidone', icon: 'hex' },
-  { label: 'Sleep Medications', meds: 'Zolpidem · Zopiclone · Eszopiclone', icon: 'moon' },
-  { label: 'Mood Stabilisers', meds: 'Lithium · Valproate · Lamotrigine', icon: 'scale' },
-  { label: 'Stimulants', meds: 'Adderall · Ritalin · Vyvanse', icon: 'bolt' },
 ];
 
 const FAQS = [
@@ -182,23 +178,22 @@ export default function Landing() {
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
           <div style={{ fontSize: 13, color: T.purple, marginBottom: 10, fontWeight: 500 }}>Which one has had you stuck?</div>
           <h2 style={{ fontFamily: serif, fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 400, color: T.fg, lineHeight: 1.1, marginBottom: 48, letterSpacing: '-0.02em' }}>Whatever you're on, we can get you off</h2>
-          <div className="meds-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, maxWidth: 1000, margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, flexWrap: 'wrap', maxWidth: 900, margin: '0 auto' }}>
             {MEDS.map(m => (
-              <div key={m.label} style={{ background: T.bg, borderRadius: T.r, padding: '28px 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
-                <div style={{ width: 48, height: 48, borderRadius: 14, background: T.purplePale, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    {m.icon === 'pill' && <svg width="22" height="22" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>}
-                    {m.icon === 'drop' && <svg width="22" height="22" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>}
-                    {m.icon === 'hex' && <svg width="22" height="22" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" /></svg>}
-                    {m.icon === 'moon' && <svg width="22" height="22" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>}
-                    {m.icon === 'scale' && <svg width="22" height="22" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" /></svg>}
-                    {m.icon === 'bolt' && <svg width="22" height="22" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>}
-                  </div>
-                <div style={{ textAlign: 'left' }}>
-                  <div style={{ fontSize: 15, fontWeight: 600, color: T.fg }}>{m.label}</div>
-                  <div style={{ fontSize: 13, color: T.subtle }}>{m.meds}</div>
+              <div key={m.label} style={{ display: 'flex', alignItems: 'center', gap: 10, background: T.bg, border: `1px solid ${T.border}`, borderRadius: 50, padding: '10px 20px' }}>
+                <div style={{ width: 28, height: 28, borderRadius: '50%', background: T.purplePale, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  {m.icon === 'pill' && <svg width="14" height="14" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>}
+                  {m.icon === 'drop' && <svg width="14" height="14" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>}
+                </div>
+                <div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: T.fg, fontFamily: sans }}>{m.label}</div>
+                  <div style={{ fontSize: 12, color: T.subtle, fontFamily: sans }}>{m.meds}</div>
                 </div>
               </div>
             ))}
+            <div style={{ display: 'flex', alignItems: 'center', background: T.purplePale, border: `1px solid ${T.purplePale}`, borderRadius: 50, padding: '10px 20px' }}>
+              <span style={{ fontSize: 14, fontWeight: 500, color: T.purple, fontFamily: sans }}>+ antipsychotics, sleep meds, mood stabilisers, stimulants</span>
+            </div>
           </div>
         </div>
       </section>
