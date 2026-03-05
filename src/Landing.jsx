@@ -63,7 +63,7 @@ export default function Landing() {
       {/* NAV */}
       <nav style={{ position: 'sticky', top: 0, zIndex: 50, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(20px)', borderBottom: `1px solid ${T.border}`, height: 64 }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><img src="/brain-logo.avif" alt="" style={{ width: 28, height: 28, objectFit: 'contain' }} /><span style={{ fontSize: 17, fontWeight: 600, color: T.fg, fontFamily: sans, letterSpacing: '-0.02em' }}>Ryan Sheridan, DNP</span></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}><img src="/brain-logo.png" alt="" style={{ width: 28, height: 28, objectFit: 'contain' }} /><span style={{ fontSize: 17, fontWeight: 600, color: T.fg, fontFamily: sans, letterSpacing: '-0.02em' }}>Proactive Psychiatry</span></div>
           <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
             {['How It Works', 'About', 'Blog', 'FAQ'].map(l => (
               <a key={l} href={`#${l.toLowerCase().replace(/\s+/g, '-')}`} style={{ fontSize: 14, color: T.fg, textDecoration: 'none', fontWeight: 400 }}>{l}</a>
@@ -100,7 +100,7 @@ export default function Landing() {
               Feel stuck on your medication?
             </h1>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.75)', lineHeight: 1.65, maxWidth: 480, marginBottom: 40 }}>
-              Don't white-knuckle this alone. Find a clinician who stays with you from the first dose reduction to zero.<br /><br />Ongoing adjustments, check-ins, someone who understands your symptoms.
+              Don't white-knuckle this alone. Proactive Psychiatry stays with you from the first dose reduction to zero.<br /><br />Ongoing adjustments, check-ins, someone who understands your symptoms.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
               <a href="#book" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: T.lime, color: T.fg, fontSize: 16, fontWeight: 500, padding: '16px 32px', borderRadius: 12, textDecoration: 'none', border: 'none' }}>Start tapering with support</a>
@@ -127,7 +127,7 @@ export default function Landing() {
           <div className="about-cols" style={{ display: 'grid', gridTemplateColumns: '45fr 55fr', gap: 64, alignItems: 'start' }}>
             <div>
               <div style={{ borderRadius: T.r, overflow: 'hidden' }}>
-                <img src="/ryan-sheridan.avif" alt="Ryan Sheridan, DNP" style={{ width: '50%', display: 'block', margin: '0 auto' }} />
+                <img src="/ryan-sheridan.png" alt="Ryan Sheridan, DNP" style={{ width: '50%', display: 'block', margin: '0 auto' }} />
               </div>
             </div>
             <div style={{ paddingTop: 0 }}>
@@ -196,6 +196,34 @@ export default function Landing() {
                 <div style={{ textAlign: 'left' }}>
                   <div style={{ fontSize: 15, fontWeight: 600, color: T.fg, fontFamily: sans }}>{m.label}</div>
 
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* BLOG */}
+      <section id="blog" style={{ background: T.bg, padding: '96px 0', scrollMarginTop: 68 }}>
+        <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 20px' }}>
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <div style={{ fontSize: 13, color: T.purple, marginBottom: 10, fontWeight: 500 }}>From the practice</div>
+            <h2 style={{ fontFamily: serif, fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 400, color: T.fg, lineHeight: 1.1, letterSpacing: '-0.02em' }}>Latest articles</h2>
+          </div>
+          <div className="blog-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            {[
+              { title: 'Why most tapers fail in the last 10%', excerpt: 'The final reductions are where most protocols fall apart. Here\'s why linear dose cuts stop working — and what to do instead.', tag: 'Tapering' },
+              { title: 'Benzodiazepine withdrawal is not anxiety', excerpt: 'Withdrawal symptoms mimic the condition the drug was prescribed for. Learning to tell them apart changes everything.', tag: 'Benzodiazepines' },
+              { title: 'What hyperbolic tapering actually means', excerpt: 'A term you\'ll see everywhere in deprescribing. Here\'s the science behind it and why it produces better outcomes.', tag: 'Science' },
+            ].map((post, i) => (
+              <div key={i} style={{ background: T.white, borderRadius: T.r, overflow: 'hidden', border: `1px solid ${T.border}` }}>
+                <div style={{ height: 180, background: T.purplePale, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <svg width="48" height="48" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                </div>
+                <div style={{ padding: '24px 24px 28px' }}>
+                  <span style={{ fontSize: 12, fontWeight: 500, color: T.purple, background: T.purplePale, borderRadius: 6, padding: '4px 10px' }}>{post.tag}</span>
+                  <h3 style={{ fontFamily: serif, fontSize: 20, fontWeight: 400, color: T.fg, marginTop: 16, marginBottom: 10, lineHeight: 1.25 }}>{post.title}</h3>
+                  <p style={{ fontSize: 14, color: T.muted, lineHeight: 1.6 }}>{post.excerpt}</p>
                 </div>
               </div>
             ))}
@@ -297,34 +325,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* BLOG */}
-      <section id="blog" style={{ background: T.bg, padding: '96px 0', scrollMarginTop: 68 }}>
-        <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 20px' }}>
-          <div style={{ textAlign: 'center', marginBottom: 48 }}>
-            <div style={{ fontSize: 13, color: T.purple, marginBottom: 10, fontWeight: 500 }}>From the practice</div>
-            <h2 style={{ fontFamily: serif, fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 400, color: T.fg, lineHeight: 1.1, letterSpacing: '-0.02em' }}>Latest articles</h2>
-          </div>
-          <div className="blog-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-            {[
-              { title: 'Why most tapers fail in the last 10%', excerpt: 'The final reductions are where most protocols fall apart. Here\'s why linear dose cuts stop working — and what to do instead.', tag: 'Tapering' },
-              { title: 'Benzodiazepine withdrawal is not anxiety', excerpt: 'Withdrawal symptoms mimic the condition the drug was prescribed for. Learning to tell them apart changes everything.', tag: 'Benzodiazepines' },
-              { title: 'What hyperbolic tapering actually means', excerpt: 'A term you\'ll see everywhere in deprescribing. Here\'s the science behind it and why it produces better outcomes.', tag: 'Science' },
-            ].map((post, i) => (
-              <div key={i} style={{ background: T.white, borderRadius: T.r, overflow: 'hidden', border: `1px solid ${T.border}` }}>
-                <div style={{ height: 180, background: T.purplePale, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <svg width="48" height="48" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke={T.purple}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-                </div>
-                <div style={{ padding: '24px 24px 28px' }}>
-                  <span style={{ fontSize: 12, fontWeight: 500, color: T.purple, background: T.purplePale, borderRadius: 6, padding: '4px 10px' }}>{post.tag}</span>
-                  <h3 style={{ fontFamily: serif, fontSize: 20, fontWeight: 400, color: T.fg, marginTop: 16, marginBottom: 10, lineHeight: 1.25 }}>{post.title}</h3>
-                  <p style={{ fontSize: 14, color: T.muted, lineHeight: 1.6 }}>{post.excerpt}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FOOTER */}
       <footer style={{ background: T.purpleDeep, borderTop: '1px solid rgba(255,255,255,0.08)', padding: '48px 0 24px' }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 20px' }}>
@@ -336,9 +336,7 @@ export default function Landing() {
           <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 32, marginBottom: 40 }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
-                <div style={{ width: 24, height: 24, borderRadius: '50%', border: '2px solid rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'rgba(255,255,255,0.3)' }} />
-                </div>
+                <img src="/brain-logo.png" alt="" className="footer-brain" style={{ width: 28, height: 28, objectFit: 'contain' }} />
                 <span style={{ fontSize: 17, fontWeight: 600, color: T.white }}>Proactive Psychiatry</span>
               </div>
               <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7 }}>
@@ -372,6 +370,7 @@ export default function Landing() {
         a:hover { opacity: 0.9; }
 
         .nav-hamburger { display: none !important; }
+        .footer-brain { mix-blend-mode: screen; }
 
         @media (max-width: 768px) {
           nav { position: fixed !important; left: 0; right: 0; background: rgba(255,255,255,1) !important; }
